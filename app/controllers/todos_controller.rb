@@ -6,13 +6,13 @@ class TodosController < ApplicationController
 
   def create
     todo = Todo.create(todo_param)
-    render json: todo
+    render json: todo, status: :created
   end
 
   def update
     todo = Todo.find(params[:id])
     todo.update_attributes(todo_param)
-    render json: todo
+    render json: todo, status: :accepted
   end
 
   def destroy
